@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="2021/02/10/hello-world/"/>
+      <url>2021/02/10/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>将GitHub Pages绑定上个性化域名</title>
+      <link href="2021/01/19/hello/"/>
+      <url>2021/01/19/hello/</url>
+      
+        <content type="html"><![CDATA[<h1 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h1><p><strong>域名</strong>（Domain Name）是由一串用点分隔的名字组成的<u>Internet</u>上某一台<u>计算机</u>或<u>计算机组</u>的名称，用于在数据传输时对计算机的定位标识（有时也指地理位置）。 </p><p>由于IP地址具有不方便记忆并且不能显示地址组织的名称和性质等缺点，人们设计出了域名，并通过网域名称系统（DNS，Domain Name System）来将域名和IP地址相互映射，使人更方便地访问互联网，而不用去记住能够被机器直接读取的IP地址数串。</p><p>通常来说，域名就是一个一串英文或中文字符，例如：<a href="http://www.baidu.com、www.google.com、你好.com(这就是中文域名).再依赖dns服务的加持,使得这串字符可以解析到服务器的ip地址,从而可以访问./">www.baidu.com、www.google.com、你好.com(这就是中文域名)。再依赖DNS服务的加持，使得这串字符可以解析到服务器的IP地址，从而可以访问。</a></p><blockquote><p>部分信息源于网络，请在探索的过程中善用搜索引擎！</p></blockquote><h1 id="如何绑定？"><a href="#如何绑定？" class="headerlink" title="如何绑定？"></a>如何绑定？</h1><p><strong>准备工作</strong></p><ul><li>GitHub账户</li><li>一双手</li><li>一台电脑</li><li>一双眼睛</li><li>一个域名</li></ul><p><em>请先做好以上准备工作！</em></p><h2 id="GitHub方面设置"><a href="#GitHub方面设置" class="headerlink" title="GitHub方面设置"></a>GitHub方面设置</h2><p>打开GitHub，登录你的账号，打开你GitHub Pages所在的仓库，仓库名为<code>用户名.github.io</code></p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/QQ%E6%88%AA%E5%9B%BE20200829182023.png"></p><p>如图所示，点击Settings</p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/QQ%E6%88%AA%E5%9B%BE20200829182246.png"></p><p>一直往下滑，找到标题为<strong>GitHub Pages</strong>的设置，然后再看Custom domain，往文本框中填写你的域名，如<code>www.abc.com</code>，然后点Save，这样就大功告成了</p><h2 id="DNS解析服务商的设置"><a href="#DNS解析服务商的设置" class="headerlink" title="DNS解析服务商的设置"></a>DNS解析服务商的设置</h2><p>每个域名会有一个DNS解析服务商，如我的就是<code>DNSPods</code>，如果不知道自己的DNS解析服务商是什么，可以到域名购买处查看！  </p><p>打开DNS解析服务商，登录账号，找到自己的域名。添加一条解析。</p><table><thead><tr><th>主机记录</th><th>记录类型</th><th>记录值</th><th>TTL(秒)</th></tr></thead><tbody><tr><td>www</td><td>cname</td><td>用户名.github.io</td><td>3600</td></tr><tr><td>@</td><td>cname</td><td>用户名.github.io</td><td>3600</td></tr></tbody></table><p>在这里的<code>用户名</code>要更改为自己GitHub的用户名，主机记录<code>www</code>代表使用<code>www.abc.com</code>访问，这里的<code>abc.com</code>指的是自己的主域名，主机记录<code>@</code>代表使用主域名访问。</p><h2 id="懒人大法"><a href="#懒人大法" class="headerlink" title="懒人大法"></a>懒人大法</h2><p>我们知道每次<code>hexo d</code>之后都会重新上传一遍Hexo文件到GitHub仓库，这样的话第一步所创建的<code>cname</code>文件就会被删除，所以在以上的操作完成后，我们要到Hexo文件夹内的source子目录中添加一个<code>cname</code>文件，内容是自己的域名，这样的话每次<code>hexo d</code>都会把<code>cname</code>文件上传到仓库~</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> GitHub Pages </tag>
+            
+            <tag> 域名 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>0成本搭建博客！</title>
+      <link href="2020/08/18/blog/"/>
+      <url>2020/08/18/blog/</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>现在的博客程序有很多（小白式的也就属<a href="https://www.wordpress.org/">WordPress</a>了吧），发布文章的地方也有很多（<a href="https://www.cnblogs.com/">博客园</a>,<a href="https://www.jianshu.com/">简书</a>,<a href="https://www.csdn.net/">CSDN-专业开发者社区</a>）。前者的WordPress需要一个虚拟主机或VPS(维护成本较高T-T)，而后者的发布文章的地方多多少少有些约束(在别人家吃饭总没有在自己家吃饭舒适得多)。而本文，将会使你在白嫖的路上越走越远~</p><h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ul><li>一双手</li><li>一台电脑</li><li>一个GitHub账号</li></ul><h2 id="Hexo简介"><a href="#Hexo简介" class="headerlink" title="Hexo简介"></a>Hexo简介</h2><p>Hexo是一款基于Node.js的静态博客框架，而<a href="https://hexo.io/">Hexo官网</a>对于Hexo的定义为“快速、简洁且高效的博客框架”，在实际使用时我们可以体会到这并不是浪得虚名。</p><h3 id="Hexo的优势"><a href="#Hexo的优势" class="headerlink" title="Hexo的优势"></a>Hexo的优势</h3><ul><li><strong>超快速度</strong> 依靠Node.js带来的强劲生成速度，几百个页面瞬间完成渲染</li><li><strong>支持Markdown语法</strong> 本文就是使用美妙的Markdown语法书写</li><li><strong>一键部署</strong> 一条命令即可迅速部署到GitHub Pages，Heroku等平台</li><li><strong>插件和可扩展性</strong> 与数种模板引擎和工具轻易集成</li></ul><h1 id="开始搭建"><a href="#开始搭建" class="headerlink" title="开始搭建"></a>开始搭建</h1><h2 id="环境部署"><a href="#环境部署" class="headerlink" title="环境部署"></a>环境部署</h2><ul><li><p><a href="https://gitforwindows.org/">点我下载Git</a></p></li><li><p><a href="https://nodejs.org/zh-cn/">点我下载Node.js</a></p><p>上面的两个程序，下载安装（一路Next）即可  </p></li></ul><h3 id="检验安装是否完毕"><a href="#检验安装是否完毕" class="headerlink" title="检验安装是否完毕"></a>检验安装是否完毕</h3><p>打开Windows Powershell，输入 <code>git --version</code> <code>node -v</code> <code>npm -v</code> 检验是否安装完毕，如图所示即可  </p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/H1.png"></p><h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>前面Git，Node.js安装完毕后，可以进行这一步啦！  </p><pre><code>npm install -g hexo-cli</code></pre><p>然后输入 <code>hexo -v</code>查看版本号，有版本号回显即为安装成功</p><p>然后新建一个文件夹“Blog”，这个文件夹的名称可以自己取，我取的是“Blog”    </p><p>我的文件夹路径为“D:\Blog”，打开Windows PowerShell，cd到相应路径  </p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/H2.png"></p><p>然后输入<code>hexo init</code>进行初始化</p><p>Tips:若在<code>hexo init</code>时出现了“无法加载文件，因为在此系统中禁止执行此脚本”时，尝试输入<code>set-executionpolicy remotesigned</code> 然后输入”Y“，该问题就解决啦  </p><p>初始化完毕后输入以下命令，安装依赖ing…</p><pre><code>npm install</code></pre><p>构建完成后，该目录下应有</p><ul><li><strong>node_modules</strong> 这是Node.js的依赖包</li><li><strong>public</strong> <code>hexo g</code>之后生成的页面存放目录</li><li><strong>scaffolds</strong> 生成文章的模板</li><li><strong>source</strong> 存放文章及其他页面的地方</li><li><strong>themes</strong> Hexo的主题存放目录~</li><li><strong>_config.yml</strong> 博客的配置文件</li></ul><p>然后输入以下命令开始你的博客之旅~</p><pre><code>hexo generatehexo server</code></pre><p>在浏览器输入 localhost:4000 就能看见你的博客啦(Tips:若有防火墙提示，请放行)</p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/H3.png"></p><p>该页面有一些关于Hexo的使用，看完后在Windows Powershell使用 Ctrl+C 关闭</p><h2 id="将Hexo本地博客上传到Github-Pages"><a href="#将Hexo本地博客上传到Github-Pages" class="headerlink" title="将Hexo本地博客上传到Github Pages"></a>将Hexo本地博客上传到Github Pages</h2><h3 id="注册GitHub账号"><a href="#注册GitHub账号" class="headerlink" title="注册GitHub账号"></a>注册GitHub账号</h3><p>GitHub Pages是GitHub的一项托管服务，所以你必须要有一个GitHub账号<a href="https://github.com/join?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=/&source=header-home">点我去注册！</a>根据该页提示进行注册  </p><p>注册完毕后，我们可以看到一个New，点击它！</p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/H4.png"></p><p>创建一个和你用户名相同的仓库，后加.github.io，Description（描述）可以随便填，选择Public，最后选择Create Repository。</p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/H5.png"></p><h3 id="生成SSH添加到GitHub"><a href="#生成SSH添加到GitHub" class="headerlink" title="生成SSH添加到GitHub"></a>生成SSH添加到GitHub</h3><p>打开Windows Powershell或Git Bash 输入</p><pre><code>git config --global user.name &quot;yourname&quot;git config --global user.email &quot;youremail&quot;</code></pre><p>双引号内的yourname和youremail换成你的用户名和GitHub相对应的邮箱</p><p>然后输入  (youremail 换成你的邮箱)</p><pre><code>ssh-keygen -t rsa -C &quot;youremail&quot; </code></pre><p>然后按两次回车键  </p><p>这时已经生成了SSH文件，它会显示出来你SSH文件的路径  </p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/H6.png"></p><p>然后用记事本打开<code>id_rsa.pub</code>，将里面的内容复制一下</p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/H7.png"></p><p>然后打开GitHub，找到Settings选项，再点击“<a href="https://github.com/settings/keys">SSH and GPG keys</a>”，最后点击“New SSH Key”</p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/H8.png"></p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/H9.png"></p><p>把<code>id_rsa.pub</code>里面的信息复制进去</p><h3 id="上载博客"><a href="#上载博客" class="headerlink" title="上载博客"></a>上载博客</h3><p>打开博客目录下的<code>_config.yml</code> ，把下列代码粘贴到最后一行</p><pre><code>deploy:  type: git  repo: https://github.com/Yourname/Yourname.github.io.git  branch: master</code></pre><p>把”Yourname”改成你的GitHub的名称 然后Ctrl+S保存</p><p>这时候先别<code>hexo d</code>(不听话的孩子会出错哦~)  </p><p>应先安装<code>deloy-git</code>，才能进行<code>hexo d</code>上传部署，在Windows Powershell内运行下列命令  </p><pre><code>npm install hexo-deployer-git --save</code></pre><p>然后就能进行<code>hexo d</code>上传了，输入<code>hexo d</code>后可能会让你输入你的username和password，输入即可。在输入password的时候是不会显示的，这是为了保护隐私，照常输入即可  </p><h3 id="访问博客"><a href="#访问博客" class="headerlink" title="访问博客"></a>访问博客</h3><p>一顿操作猛如虎，那么我们来欣赏一下自己的战果吧！  </p><p>输入<code>yourname.github.io</code>进行访问，yourname就是你的GitHub名字</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> GitHub Pages </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>用另一种方式打开网课！</title>
+      <link href="2020/07/25/dingtalk/"/>
+      <url>2020/07/25/dingtalk/</url>
+      
+        <content type="html"><![CDATA[<h1 id="对“钉钉时代”划水的一些技术指导"><a href="#对“钉钉时代”划水的一些技术指导" class="headerlink" title="对“钉钉时代”划水的一些技术指导"></a>对“钉钉时代”划水的一些技术指导</h1><p><u><strong>请您注意，这虽然看起来字数很多很复杂，但是如果您有耐心，根据本文一步步进行操作， 是很容易就可以完成的。</strong></u>  </p><hr><h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul><li>前言  </li><li>保持在镜头前刻苦学习——使用虚拟摄像头  </li><li>让您的电脑没有任何与学习无关的应用——使用虚拟计算机  </li><li>让您的电脑/手机没有任何与学习无关的应用——使用多用户  </li><li> 让您的手机没有任何与学习无关的应用——冻结掉它们！  </li><li> 对于“屏幕使用时间”的一些解决方案  </li><li>您从未漏掉任何一节课——使用虚拟机挂网课！  </li></ul><hr><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我为什么要写这样一篇文章？   </p><p>众所周知，因为疫情的缘故，我们不得不被困在家里，进入“钉钉时代”。  </p><p>这本来无可厚非，但是 一些学校，或者老师，将这类应用程序变为他们监视学生的工具，甚至在本应休息的时期仍然使用它来限制学生的行为。   </p><p>因此，这便是这篇文章诞生的目的。  </p><p>当然，对于您划水的目的，以及划水会对您造成好的或者不好的影响，我们没有兴趣了解。我们只提供技术指导。  </p><hr><h1 id="保持在镜头前刻苦学习——使用虚拟摄像头"><a href="#保持在镜头前刻苦学习——使用虚拟摄像头" class="headerlink" title="保持在镜头前刻苦学习——使用虚拟摄像头"></a>保持在镜头前刻苦学习——使用虚拟摄像头</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul><li>一段认真学习的录像，时长&gt;10 Min  </li><li>一台支持“OBS Studio”的电脑  </li><li>一个灵活的大脑</li></ul><hr><p><strong>第一步，安装“OBS Studio”</strong>  </p><p>首先 您需要下载并安装一个名为“obs studio”的应用程序至您的电脑，同时 您需要下载“obs dtudio”的虚拟摄像头插件。不必担心，下面已经为您准备好了下载链接。<br><a href="https://kola.lanzous.com/ixN01eyq71c">点我下载OBS Studio 安装程序</a>  <a href="https://kola.lanzous.com/iWuPqeyq72d">点我下载OBS Studio 虚拟摄像头插件</a>  </p><p>先安装OBS Studio，后安装插件。安装的过程很简单，如果您不懂得安装程序内的一些选项，只需要不断点击下一 步（next）即可，但是一些安装程序内的协议需要您点击同意，才能点击下一步。 当然，是否同意那些协议以及是否安装，这取决于您。 顺便一提，安装需要管理员权限，当然，大多数情况下您无需注意这一项。</p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/1.png" alt="img"></p><p>当一切就绪之后，启动“OBS Studio“。  </p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/2.png" alt="img"></p><hr><p><strong>第二步，打开您事先录制好的视频</strong>  </p><p>这里我们以<u>迅雷影音</u>为例做说明，其它播放器应该也通用，如果不通用，可以尝试使用<u>迅雷影音</u>。  </p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/3.png" alt="img"></p><p>右键您事先录制好的视频-打开方式-<u>迅雷影音</u>  </p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/4.png" alt="img"></p><p>之后您会看到迅雷影音被打开并播放您的视频。  </p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/5.png" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/6.png" alt="img"></p><p>然后，您需要将您的播放器设置为单曲循环模式。点击图中的按钮，将它设置为单曲循环模式。  </p><hr><p><strong>第三步，部署您的虚拟摄像头画面</strong>  </p><p>点击“obs studio”主界面的“+”    </p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/7.png" alt="img"></p><p>选择“窗口捕获”   </p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/8.png" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/9.png" alt="img"></p><p>点击“窗口”二字右边的选择栏，选择迅雷影音，然后点击确定。  </p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/10.png" alt="img"></p><p>然后，您会看到您的视频在 obs studio 上开始播放。  </p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/11.png" alt="img"></p><p>点击主界面上您的视频，它的周围会出现一圈红色的框框，用鼠标按住并拉伸它， 把它拉到合适的大小。 当您觉得眼前的画面已经很完美的时候。点击“工具”-“虚拟摄像头”  </p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/12.png" alt="img"></p><p>然后启动它  </p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/13.png" alt="img"></p><p>这时，进入您的钉钉视频会议（或其他同类应用），点击设置。  </p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/14.png" alt="img"></p><p>不出意外，摄像头的下拉选择框中会出现 obs-camera，选择它  </p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/15.png" alt="img"></p><p>这时，差不多就已经大功告成了。   </p><p>您可以多留意一下视频会议中您的画面，以免出现纰漏。  </p><hr><p><strong>一些注意事项</strong>  </p><ul><li><p>不要把视频播放器最小化，否则您的画面可能会暂停。  </p></li><li><p>一定要确保您播放器可以设置为单曲循环，部分播放器播放完一遍后会自动暂停。如果您不确定您的播放器是否支持此功能，请使用迅雷影音。   </p></li><li><p>一定要把您的画面拉伸到合适的尺寸，同时避免露出标题栏，进度条等画面。  </p></li></ul><p><u><strong>如果您无法解决此问题，请使用迅雷影音，它不会被 obs 捕获到标题栏和进度条。</strong></u>  </p><hr><h1 id="让您的电脑没有任何与学习无关的应用——使用虚拟计算机"><a href="#让您的电脑没有任何与学习无关的应用——使用虚拟计算机" class="headerlink" title="让您的电脑没有任何与学习无关的应用——使用虚拟计算机"></a>让您的电脑没有任何与学习无关的应用——使用虚拟计算机</h1><p>相对于虚拟摄像头，虚拟计算机的部署比它复杂得多。可能并不适用于所有人。因此这里只做简单描述。 （本教程适合8G及以上配置用户使用）  </p><p>虚拟计算机软件：<u>VMware Workstation</u>.或者 <u>Virtual box</u> 或者其他 </p><p>Windows 安装镜像推荐去 <a href="msdn.itellyou.com">MSDN，我告诉你</a> 下载（此站点需要配合<u>迅雷</u>下载）   </p><p>安装完虚拟计算机软件后，根据它的提示，创建一个新的虚拟机，部署它的硬件配置，然后给它安装操作系统（方式和给实体机安装操作系统一致），最后在虚拟机的操作系统上运行您的视频会议类应用程序。这样，当您的老师使用屏幕共享查看您的电脑时，只能看到您的虚拟计算机。  </p><hr><h1 id="让您的电脑-手机没有任何与学习无关的应用——使用多用户"><a href="#让您的电脑-手机没有任何与学习无关的应用——使用多用户" class="headerlink" title="让您的电脑/手机没有任何与学习无关的应用——使用多用户"></a>让您的电脑/手机没有任何与学习无关的应用——使用多用户</h1><h4 id="电脑使用多用户的方法"><a href="#电脑使用多用户的方法" class="headerlink" title="电脑使用多用户的方法"></a>电脑使用多用户的方法</h4><p>以 Windows 用户为例，点击左下角的 Windows logo，打开开始菜单，找到“控制面板”，打开它，</p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/16.png" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/17.png" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/18.png" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/19.png" alt="img"></p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/20.png" alt="img"></p><p>这样，您就可以将不同的应用程序使用不同的用户进行使用了。但是请注意，一些应用程序为全账户通用，此方法并不对其生效。另外，此方法需要您的当前用户具备管理员权限。  </p><h4 id="手机使用多用户的方法"><a href="#手机使用多用户的方法" class="headerlink" title="手机使用多用户的方法"></a>手机使用多用户的方法</h4><p>打开手机的设置，查找诸如“多用户”“分身空间”“隐私空间”之类的东西。此方法适用于 Android 系统，并且 Android 版本至少为 5，并且您的手机制造商没有阉割掉这个功能。  </p><hr><h1 id="让您的手机没有任何与学习无关的应用——冻结掉它们！"><a href="#让您的手机没有任何与学习无关的应用——冻结掉它们！" class="headerlink" title="让您的手机没有任何与学习无关的应用——冻结掉它们！"></a>让您的手机没有任何与学习无关的应用——冻结掉它们！</h1><h4 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h4><p>此方案适用于部分没有 root 的 Android 手机您可以在手机上下载一个名为“冰箱”的应用程序。  </p><p><img src="https://cdn.jsdelivr.net/gh/chinastar062/CDN/img/21.png" alt="img"></p><p>下载安装完毕后，根据其提示操作，激活它，然后使用它冻结掉你不希望被看到的 app，当您需要使用它时，再解冻它。   </p><p>或者您可以使用 adb 命令来冻结掉应用。  </p><p>详情请在您的浏览器搜索“使用 adb 冻结应用”  </p><hr><h4 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h4><p>**此方案适用于有 Root 的 Android 用户或已越狱的 iOS  用户 **  </p><p>既然您有 Root 权限，那么可以直接使用 RE 文件管理器或者 MT 管理器或者其他同类应用来重命名/data/app 目录下您的应用，然后重启，来实现隐藏，当您需要使用时，再重命名回去，然后重启。或者使用 root 权限来冻结应用。  </p><p>对于 iOS 已越狱用户，可以安装类似于<u>“隐藏应用”的插件</u>。  </p><hr><h1 id="对于“屏幕使用时间”的一些解决方案"><a href="#对于“屏幕使用时间”的一些解决方案" class="headerlink" title="对于“屏幕使用时间”的一些解决方案"></a>对于“屏幕使用时间”的一些解决方案</h1><ul><li>可以买一部备用机。这里推荐一些物美价廉的二手机 （二手机请走平台担保交易，谨防诈骗！）    </li></ul><table><thead><tr><th>价位</th><th>机型</th><th>实际表现</th></tr></thead><tbody><tr><td>100元</td><td>小米3 骁龙版</td><td>日常应用称不上流畅，但也称不上特别卡顿，勉强可以使用。主流游戏的最 低画质可以流畅运行</td></tr><tr><td>200-300 元</td><td>索尼 XZS，小米 5，Zuk Z2</td><td>日用还算流畅，游戏表现不输 2019 年 1000-2000 的机型，但前提是您需要 删掉它们的温度控制。否则一旦发热，会特别卡顿</td></tr><tr><td>300元</td><td>小米 5x，vivo X9，oppo R9s 等骁龙625机型</td><td>基本等同“小米 3 骁龙版”，但续航特别强劲</td></tr><tr><td>500-1000 元</td><td>小米 6，三星 s8，小米 8， 魅族 16，Googlepixel2 等 骁龙 835/845 机型，或 iPhoneSE ， iPhone6s iPhone7 等 a9/a10 机型</td><td>日用大多数情况下流畅丝滑，游戏最高画质依旧流畅</td></tr><tr><td>1000 以上</td><td>骁 龙 855/865 ， 苹 果 A11/12/13，麒麟 990</td><td>这里不用多说了吧=-=</td></tr></tbody></table><ul><li>大部分 Android 手机，在卸载应用后，该应用的统计数据会被清除。   </li><li>如果您有 Root 权限或越狱，那么我相信您有解决办法。比如直接删掉屏幕使用时间这个 APP。  </li></ul><hr><h1 id="您从未漏掉任何一节课——使用虚拟机挂网课！"><a href="#您从未漏掉任何一节课——使用虚拟机挂网课！" class="headerlink" title="您从未漏掉任何一节课——使用虚拟机挂网课！"></a>您从未漏掉任何一节课——使用虚拟机挂网课！</h1><p>您可以在 Android 手机安装“VMOS”，使用它来挂网课   </p><p>或者在电脑安装虚拟机来挂网课  </p><p>或者购买一台备用机 （参照上表）  </p><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 钉钉 </tag>
+            
+            <tag> OBS Studio </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
